@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,54 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PlayingCard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <view opaque="NO" contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Aom-CM-KOd" customClass="PlayingCardView" customModule="PlayingCard" customModuleProvider="target">
+                                <rect key="frame" x="16" y="136.66666666666669" width="343" height="548.66666666666652"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" priority="750" constant="800" id="MrT-Ab-NYx"/>
+                                    <constraint firstAttribute="width" secondItem="Aom-CM-KOd" secondAttribute="height" multiplier="5:8" id="fMl-eQ-cFf"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="rank">
+                                        <integer key="value" value="13"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="suit" value="♣️"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isFaceUp" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="fnn-gw-xpY" appends="YES" id="nWG-8V-cG6"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.79949150935207891" blue="0.4132391340850764" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="Aom-CM-KOd" firstAttribute="centerX" secondItem="A5q-ZY-MOI" secondAttribute="centerX" id="OaN-rO-mUf"/>
+                            <constraint firstItem="Aom-CM-KOd" firstAttribute="centerY" secondItem="A5q-ZY-MOI" secondAttribute="centerY" id="RT9-a3-h4x"/>
+                            <constraint firstItem="A5q-ZY-MOI" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Aom-CM-KOd" secondAttribute="trailing" constant="16" id="Xxm-lp-t5z"/>
+                            <constraint firstItem="Aom-CM-KOd" firstAttribute="top" relation="greaterThanOrEqual" secondItem="A5q-ZY-MOI" secondAttribute="top" constant="16" id="gl8-jN-ENj"/>
+                            <constraint firstItem="A5q-ZY-MOI" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Aom-CM-KOd" secondAttribute="bottom" constant="16" id="kGP-yb-l5E"/>
+                            <constraint firstItem="Aom-CM-KOd" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="A5q-ZY-MOI" secondAttribute="leading" constant="16" id="kwC-fN-hol"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="A5q-ZY-MOI"/>
                     </view>
+                    <connections>
+                        <outlet property="playingCardView" destination="Aom-CM-KOd" id="KAW-Ny-Eh0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="fnn-gw-xpY">
+                    <connections>
+                        <action selector="flipCard:" destination="BYZ-38-t0r" id="Khj-DN-0R9"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="138.40000000000001" y="68.7192118226601"/>
         </scene>
     </scenes>
 </document>
